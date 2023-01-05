@@ -1,0 +1,234 @@
+<link rel="stylesheet" href="/css/_project_description.css">
+
+<div class="parent">
+    <div class="header-parent">
+        <div class="header">
+            <h5>Name of the project:</h5>
+            <span>
+                <%=project.name%>
+            </span>
+        </div>
+    </div>
+    <div class="content">
+        <div class="header">
+            <h5>Author:</h5>
+            <span>
+                <%=project.author%>
+            </span>
+        </div>
+        <div class="header">
+            <h5>Description:</h5>
+            <span>
+                <%=project.description%>.
+            </span>
+        </div>
+    </div>
+
+</div>
+
+<div class="buttons-parent">
+    <div>
+        <div class="add-new-project-btn">
+            <button class="btn btn-primary" onclick="showAllIssue()">Show all issue</button>
+        </div>
+
+        
+    </div>
+    <div>
+        <div class="add-new-project-btn">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#filter">
+                Filter issue
+            </button>
+        </div>
+        <div class="modal fade" id="filter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Filter Issue</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row mb-3">
+                            <div class="col-sm-10 offset-sm-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck1" name="label"
+                                        value="bug">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        Bug
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck2" name="label"
+                                        value="uiImprovement">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        UI Improvement
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck3" name="label"
+                                        value="documentation">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        Documentation
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck4" name="label"
+                                        value="enhancement">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        Enhancement
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck5" name="label"
+                                        value="duplicate">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        Duplicate
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Author</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="author" class="form-control" id="filter-by-author" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary"data-toggle="modal" data-target="#filter" data-bs-dismiss="modal" onclick=filterIssue()>Filter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="add-new-project-btn">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#search">
+                Search issue
+            </button>
+        </div>
+        <div class="modal fade" id="search" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Search Issue</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row mb-3">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="title" class="form-control" id="search-by-title">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Description</label>
+                            <div class="col-sm-10">
+                                <textarea name="description" cols="30" rows="3" class="form-control"
+                                    id="search-by-description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#filter" data-bs-dismiss="modal" onclick="searchIssue()">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        
+        <div class="add-new-project-btn">
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Create issue
+            </button>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <form class="modal-dialog" action="/issue/create-issue/<%=project._id%>" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">New Issue</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row mb-3">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="title" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Description</label>
+                            <div class="col-sm-10">
+                                <textarea name="description" id="" cols="30" rows="3" class="form-control"
+                                    id="inputPassword3"></textarea>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Author</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="author" class="form-control" id="inputPassword3" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-10 offset-sm-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck1" name="label"
+                                        value="bug">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        Bug
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck2" name="label"
+                                        value="uiImprovement">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        UI Improvement
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck3" name="label"
+                                        value="documentation">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        Documentation
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck4" name="label"
+                                        value="enhancement">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        Enhancement
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck5" name="label"
+                                        value="duplicate">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        Duplicate
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Add Issue</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Modal -->
+
+</div>
+
+<div class="issue-parent">
+    <ul id="list-parent">
+    </ul>
+</div>
+<script src="/js/_project_description.js"></script>
+<script>
+    var project='<%- JSON.stringify(project) %>'
+</script>

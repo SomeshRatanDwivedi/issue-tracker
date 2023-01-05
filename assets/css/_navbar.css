@@ -1,0 +1,16 @@
+nav{
+    
+    word-spacing: 5px;
+}
+nav h3{
+    width: fit-content;
+}
+
+nav h3 a{
+   
+    color: rgb(149, 226, 200);
+}
+
+nav h3 a:hover{
+    color: white;
+}

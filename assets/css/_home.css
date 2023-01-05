@@ -1,0 +1,40 @@
+ul{
+    width: 100%;
+    padding: 0;
+}
+
+.header-parent{
+    padding: 10px;
+    background-color: #5a5757;
+}
+
+.header{
+    display: flex;
+    justify-content: flex-start;
+    padding: 5px;
+}
+.header span::first-letter{
+    text-transform: capitalize;
+}
+
+.header h5{
+    padding-right: 10px;
+    color:rgb(17 233 178);
+}
+.content{
+    padding: 10px;
+}
+li{
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-top: 5px;
+    list-style: none;
+}
+.btn-parent{
+    text-align: right;
+}
+
+
+
+
+

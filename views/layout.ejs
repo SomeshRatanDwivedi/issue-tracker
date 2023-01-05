@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <%-style%>
+    <link rel="stylesheet" href="/css/layout.css">
+</head>
+
+<body>
+    <div class="navbar-parent">
+        <div class="navbar">
+            <%-include('_navbar');%>
+        </div>
+        <div class="modal-btn">
+            <% if(locals.page=='_home' ){%>
+                <div class="add-new-project-btn">
+                    <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Add new project
+                    </button>
+                </div>
+                
+        
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <form class="modal-dialog" action="/project/add-new-project" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">New Project</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form">
+                                    <div class="title">Welcome</div>
+                                    <div class="subtitle">Let's create new project !</div>
+                                    <div class="input-container ic1">
+                                        <input id="project-name" class="input" name="name" type="text" placeholder=" "
+                                            required="true" autocomplete="off" />
+                                        <div class="cut project-name"></div>
+                                        <label for="firstname" class="placeholder">Project Name</label>
+                                    </div>
+                                    <div class="input-container ic2">
+                                        <input id="project-description" class="input" name="description" type="text"
+                                            placeholder=" " required="true" autocomplete="off" />
+                                        <div class="cut project-description"></div>
+                                        <label for="lastname" class="placeholder">Project Description</label>
+                                    </div>
+                                    <div class="input-container ic2">
+                                        <input id="author-name" class="input" name="author" type="text" placeholder=" "
+                                            required="true" autocomplete="off" />
+                                        <div class="cut cut-short"></div>
+                                        <label for="email" class="placeholder">Author</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Add Project</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <%}%>
+        </div>
+       
+
+    </div>
+    
+        <section class="home">
+            <% if(locals.page=='_home' ){%>
+                <%-include('_home');%>
+                    <%}%>
+                        <% if(locals.page=='_project_description' ){%>
+                            <%-include('_project_description');%>
+                                <%}%>
+                                    <% if(locals.page=='_create_project' ){%>
+                                        <%-include('_create_project');%>
+                                            <%}%>
+        </section>
+        <!-- Button trigger modal -->
+     
+
+
+
+        <!-- <%-include('_footer');%> -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                crossorigin="anonymous"></script>
+                <%-script%>
+
+</body>
+
+</html>

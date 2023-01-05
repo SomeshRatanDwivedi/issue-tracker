@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/css/_home.css">
+
+<ul>
+    <%for(let project of projects){%>
+        <li>
+            <div class="header-parent">
+                <div class="header">
+                    <h5>Name of the project:</h5>
+                    <span><%=project.name%></span>
+                </div>
+            </div>
+            <div class="content">
+                <div class="header">
+                    <h5>Author:</h5>
+                    <span><%=project.author%></span>
+                </div>
+                <div class="header">
+                    <h5>Description:</h5>
+                    <span> <%=project.description%></span>
+                </div>
+                <div class="btn-parent">
+                    <button class="button" role="button"> <a href="/project/show-project/<%=project._id%>">Open project</a></button>
+                </div>
+
+
+
+            </div>
+        </li>
+        <%}%>
+</ul>

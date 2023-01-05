@@ -1,0 +1,65 @@
+ul{
+    width: 100%;
+    padding: 0;
+}
+.parent{
+    margin-top: 2px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.header-parent{
+    padding: 10px;
+    background-color: #5a5757;
+}
+
+.header{
+    display: flex;
+    justify-content: flex-start;
+    padding: 5px;
+}
+.header span::first-letter{
+    text-transform: capitalize;
+}
+
+.label::first-letter{
+    text-transform: capitalize;
+}
+
+
+.header h5{
+    padding-right: 10px;
+    color:rgb(17 233 178);
+}
+.content{
+    padding: 10px;
+}
+li{
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-top: 5px;
+    list-style: none;
+}
+
+.buttons-parent{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.issue-parent{
+    width: 100%;
+    height: calc(100% - 248px);
+    overflow-y: scroll;
+}
+
+.btn a{
+    color: white
+}
+.label{
+    padding-right: 5px;
+}
+
+
+
+
