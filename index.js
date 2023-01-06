@@ -1,13 +1,13 @@
 const express=require('express');
+const env=require('./config/environment')
 const port=8000;
-const path=require('path');
 const ejsLayouts=require('express-ejs-layouts');
 const db=require('./config/mongoose')
 const app=express();
 
 
 app.use(express.urlencoded());
-app.use(express.static(path.join(__dirname, './assets')));
+app.use(express.static(env.asset_path));
 app.use(ejsLayouts);
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
