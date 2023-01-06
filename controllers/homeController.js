@@ -18,3 +18,5 @@ module.exports.home=(req, res)=>{
     })
  
 }
+
+//"prod_start":"NODE_ENV=production node index.js",
