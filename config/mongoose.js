@@ -1,5 +1,6 @@
 const mongoose=require('mongoose');
 const env=require('../config/environment')
+mongoose.set("strictQuery", false);
 mongoose.connect(`mongodb://localhost/${env.db_name}`);
 
 const db=mongoose.connection;
