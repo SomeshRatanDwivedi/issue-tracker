@@ -2,10 +2,12 @@
 
 
 function showAllIssue() {                      //to show all issues
-    if (typeof (project) == 'string') {
+    if (typeof(project) == 'string') {
 
         project = JSON.parse(project);
     }
+    let list = document.getElementById('list-parent');
+    list.innerHTML='';
     for (let issue of project.issues) {
 
         let data = ` <li>
@@ -26,7 +28,7 @@ function showAllIssue() {                      //to show all issues
             <span class="label-parent"></span>
        </div>
     </li>`
-        let list = document.getElementById('list-parent');
+      
         list.innerHTML += data;
 
     }
@@ -53,7 +55,7 @@ function filterIssue() {                                                        
     let isEnhancementChecked = document.getElementById('gridCheck4').checked;
     let isDuplicateChecked = document.getElementById('gridCheck5').checked;
     let authorName = document.getElementById('filter-by-author').value;
-    if (typeof (project) == 'string') {
+    if (typeof(project) == 'string') {
         project = JSON.parse(project);
     }
     let issues = project.issues
@@ -73,17 +75,17 @@ function filterIssue() {                                                        
     }
     if (isDocumentationChecked) {
         filteredData = filterOnLabel('documentation', filteredData);
-        document.getElementById('gridCheck3')=false
+        document.getElementById('gridCheck3').checked=false
 
     }
     if (isEnhancementChecked) {
         filteredData = filterOnLabel('enhancement', filteredData);
-        document.getElementById('gridCheck4')=false;
+        document.getElementById('gridCheck4').checked=false;
 
     }
     if (isDuplicateChecked) {
         filteredData = filterOnLabel('duplicate', filteredData);
-        document.getElementById('gridCheck5')=false
+        document.getElementById('gridCheck5').checked=false
 
     }
     if (isBugChecked) {
