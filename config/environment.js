@@ -17,4 +17,4 @@ const production={
 
 
 
-module.exports=eval(process.env.ERROR_TRACKER_ENVIRONMENT)==undefined?development:eval(process.env.ERROR_TRACKER_ENVIRONMENT);
+module.exports=development
